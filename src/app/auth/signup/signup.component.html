@@ -8,15 +8,10 @@
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <div class="input-group">
-                    <input type="password" id="password" formControlName="password" class="form-control"
-                        data-toggle="password">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-eye"></i></span>
-                    </div>
-                </div>
+                <input type="password" id="password" formControlName="password" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">Inscription</button>
+            <p class="text-danger">{{ errorMessage }}</p>
+            <button type="submit" class="btn btn-primary mt-1" [disabled]="signUpForm.invalid">Inscription</button>
         </form>
     </div>
 </div>

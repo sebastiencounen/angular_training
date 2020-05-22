@@ -16,7 +16,13 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PostsService } from './services/posts.service';
 
-const appRoutes: Routes = [];
+const appRoutes: Routes = [
+  { path: 'auth/signin', component: SigninComponent },
+  { path: 'auth/signup', component: SignupComponent },
+  { path: 'posts', component: PostListComponent },
+  { path: 'posts/new', component: PostFormComponent },
+  { path: 'posts/view/:id', component: SinglePostComponent },
+];
 
 @NgModule({
   declarations: [

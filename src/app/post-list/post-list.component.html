@@ -1,1 +1,29 @@
-<p>post-list works!</p>
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Vos postes</h2>
+        <div class="list-group">
+            <button *ngFor="let post of posts; let i = index" [ngClass]="{
+                'list-group-item': true,
+                'list-group-item-success': post.loveIts > 0,
+                'list-group-item-danger': post.loveIts < 0
+            }">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1" [ngStyle]=" { color: getPostColor(i) } "> {{ post.title }} </h5>
+                    <p class=" mb-1"> {{ post.created_at | date: 'short' }} </p>
+                </div>
+                <p class="mb-4" [ngStyle]=" { color: getPostColor(i) } "> {{ post.content }} </p>
+                <div class="d-flex w-100 justify-content-between">
+                    <div>
+                        <button class="btn btn-success mr-2" (click)="onLikePost(i)">Love it!</button>
+                        <button class="btn btn-dark" (click)="onDislikePost(i)">Don't love it!</button>
+                    </div>
+                    <h2 class="bold" [ngStyle]=" { color: getPostColor(i) } "> {{ post.loveIts }} LoveIts</h2>
+                    <div class="d-flex">
+                        <button class="btn btn-primary mr-2" (click)="onViewPost(i)">Détails</button>
+                        <button class="btn btn-danger" (click)="onDeletePost(post)">Supprimer</button>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>

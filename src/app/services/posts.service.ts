@@ -7,7 +7,12 @@ import * as firebase from 'firebase';
   providedIn: 'root',
 })
 export class PostsService {
-  private posts: Post[] = [];
+  private posts: Post[] = [
+    new Post(
+      'Post de test',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis recusandae libero saepe esse? Consectetur possimus saepe culpa ad! Dolorum, hic.'
+    ),
+  ];
   postsSubject = new Subject<Post[]>();
 
   constructor() {}

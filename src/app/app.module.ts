@@ -21,6 +21,8 @@ const appRoutes: Routes = [
   { path: 'posts', component: PostListComponent },
   { path: 'posts/new', component: PostFormComponent },
   { path: 'posts/view/:id', component: SinglePostComponent },
+  { path: '', redirectTo: 'posts', pathMatch: 'full' },
+  { path: '**', redirectTo: 'posts' },
 ];
 
 @NgModule({

@@ -7,12 +7,11 @@ import * as firebase from 'firebase';
   providedIn: 'root',
 })
 export class PostsService {
-  private posts: Post[] = [
-    new Post(
-      'Post de test',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis recusandae libero saepe esse? Consectetur possimus saepe culpa ad! Dolorum, hic.'
-    ),
-  ];
+  // new Post(
+  //   'Post de test',
+  //   'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+  // ),
+  private posts: Post[] = [];
   postsSubject = new Subject<Post[]>();
 
   constructor() {}
@@ -32,7 +31,7 @@ export class PostsService {
   getPosts() {
     firebase
       .database()
-      .ref('/books')
+      .ref('/posts')
       .on('value', (data: firebase.database.DataSnapshot) => {
         this.posts = data.val() ? data.val() : [];
         this.emitPosts();

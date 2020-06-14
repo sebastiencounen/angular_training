@@ -20,7 +20,7 @@ export class PostListComponent implements OnInit, OnDestroy {
       (posts: Post[]) => (this.posts = posts)
     );
 
-    // this.postsService.getPosts();
+    this.postsService.getPosts();
     this.postsService.emitPosts();
   }
 
@@ -50,5 +50,9 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   onDeletePost(post: Post) {
     this.postsService.removePost(post);
+  }
+
+  onNewPost() {
+    this.router.navigate(['/posts', 'new']);
   }
 }
